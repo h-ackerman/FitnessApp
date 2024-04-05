@@ -107,52 +107,58 @@
 
 ## Build and run Docker image for spring boot
 
-### Build Docker image (DON'T FORGET THE DOT !!!!)
-   ```
-   docker build -t <image_name> .
-   ```
+1. **Build Docker image (DON'T FORGET THE DOT !!!!)**
+      ```
+      docker build -t <image_name> .
+      ```
     
- ### List Docker images
-   ```
-   docker images
-   ```
+ 2. **List Docker images**
+      ```
+      docker images
+      ```
     
- ### Run Docker container   
- - expose container's port 8080 to host's port 8080
+ 3. **Run Docker container** 
+ - Expose container's port 8080 to host's port 8080
    ```
    docker run -p 8080:8080 <image_name_or_id>	
    ```
 
 ## Pull docker image from docker hub
 
-### Pull image 
+1. **Pull image**
+      ```
+      docker pull <dockerhub_username>/<repository_name>:<tag>
+      ```
+2. **display list of all Docker images stored locally on your machine**
+      ```
+      docker images
+      ```
+3. **Run Docker container** 
+ - expose container's port 8080 to host's port 8080
+ - run in detached mode (in the background)
    ```
-   docker pull <dockerhub_username>/<repository_name>:<tag>
-   ```
-### display list of all Docker images stored locally on your machine
-   ```
-   docker images
+   docker run -d -p 8080:8080 <image_name_or_id>	
    ```
 
 ## Push Docker Image to Docker Hub
 
-### Tag your image
+1. **Tag your image**
  If you don't specify a tag, it will default to `latest`.
    ```
    docker tag <local_image_name> <dockerhub_username>/<repository_name>:<tag>
    ```
-### log to docker hub
+2. **log to docker hub**
    ```
    docker login
    ```
 
-### push the image
+3. **push the image**
    ```
    docker push <dockerhub_username>/<repository_name>:<tag>
    ```
-### Check the repository on Docker Hub
+4. **Check the repository on Docker Hub**
 
 
-
-react is running on port 3000
-spring is running on port 8080
+## Applications ports
+- react is running on port 3000
+- spring is running on port 8080
