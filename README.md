@@ -17,16 +17,14 @@
    - Navigate to the directory where you want to store the project.
    - Run:
      ```
-     git clone <repository_url>
+     git clone https://github.com/zineb-hija/FitnessApp.git
      ```
-   Replace `<repository_url>` with the actual GitHub repository URL.
 
 2. **Navigate to Project Directory**:
    - Once cloning is complete, navigate to the project directory:
      ```
      cd <project_name>
      ```
-   Replace `<project_name>` with the project directory name.
 
 3. **Install Dependencies**:
    - Run:
@@ -108,9 +106,53 @@
 # BackEnd Spring boot
 
 ## Build and run Docker image for spring boot
-  - docker build -t [image_name] .
-  - docker images 			# to list all docker images in our machine
-  - docker run -p 8080:8080 [image_name_or_id]	# expose container's port 8080 to host's port 8080
-  
+
+### Build Docker image (DON'T FORGET THE DOT !!!!)
+   ```
+   docker build -t <image_name> .
+   ```
+    
+ ### List Docker images
+   ```
+   docker images
+   ```
+    
+ ### Run Docker container   
+ - expose container's port 8080 to host's port 8080
+   ```
+   docker run -p 8080:8080 <image_name_or_id>	
+   ```
+
+## Pull docker image from docker hub
+
+### Pull image 
+   ```
+   docker pull <dockerhub_username>/<repository_name>:<tag>
+   ```
+### display list of all Docker images stored locally on your machine
+   ```
+   docker images
+   ```
+
+## Push Docker Image to Docker Hub
+
+### Tag your image
+ If you don't specify a tag, it will default to `latest`.
+   ```
+   docker tag <local_image_name> <dockerhub_username>/<repository_name>:<tag>
+   ```
+### log to docker hub
+   ```
+   docker login
+   ```
+
+### push the image
+   ```
+   docker push <dockerhub_username>/<repository_name>:<tag>
+   ```
+### Check the repository on Docker Hub
+
+
+
 react is running on port 3000
 spring is running on port 8080
