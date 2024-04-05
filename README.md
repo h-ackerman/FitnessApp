@@ -1,6 +1,6 @@
 # README
 
-# FrontEnd(React)
+# FrontEnd (React)
 
 ## Pulling GitHub Project and Running the React App
 
@@ -103,7 +103,7 @@
 - **Collaboration**:
   - Communicate with your team members to avoid conflicts and ensure smooth collaboration when pushing changes to shared branches.
 
-# BackEnd Spring boot
+# BackEnd (Spring boot)
 
 ## Build and run Docker image for spring boot
 
