@@ -19,7 +19,7 @@ public class MealService {
         }
         else
         {mealRepository.deleteById(id);
-        System.out.println("Meal deleted with id: " + id);}
+            System.out.println("Meal deleted with id: " + id);}
     }
     public Meal saveMeal(Meal meal) {
         return mealRepository.save(meal);
@@ -35,6 +35,7 @@ public class MealService {
         return mealRepository.findById(id)
                 .map(meal -> {
                     meal.setName(newMeal.getName());
+                    meal.setDescription(newMeal.getDescription());
                     meal.setType(newMeal.getType());
                     meal.setCalories(newMeal.getCalories());
                     meal.setProtein(newMeal.getProtein());
