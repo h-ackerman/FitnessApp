@@ -1,0 +1,25 @@
+.list{
+    color: #000;
+    font-family: Montserrat;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%; /* 44.8px */
+    }
+    
+    .list Button{
+      margin-left: 57%;
+      background-color: #5041BC;
+      color: white;
+      border-color: white; 
+    
+    }
+    .material-icons.icon2 {
+      color: #5041BC; /* Set color for icon1 */
+    }
+    
+    .table th{
+      color: #ACACAC;
+    font-weight: 600;
+    line-height: normal;
+    }

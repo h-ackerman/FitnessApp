@@ -19,11 +19,15 @@ public class MealService {
         }
         else
         {mealRepository.deleteById(id);
-        System.out.println("Meal deleted with id: " + id);}
+            System.out.println("Meal deleted with id: " + id);}
     }
+
+
     public Meal saveMeal(Meal meal) {
         return mealRepository.save(meal);
     }
+
+
     public List<Meal> findAll() {
         return mealRepository.findAll();
     }
@@ -35,12 +39,16 @@ public class MealService {
         return mealRepository.findById(id)
                 .map(meal -> {
                     meal.setName(newMeal.getName());
+                    meal.setDescription(newMeal.getDescription());
                     meal.setType(newMeal.getType());
                     meal.setCalories(newMeal.getCalories());
                     meal.setProtein(newMeal.getProtein());
                     meal.setCarbs(newMeal.getCarbs());
                     meal.setFats(newMeal.getFats());
+                    meal.setImage(newMeal.getImage());
+
                     return mealRepository.save(meal);
+
                 })
                 .orElseGet(() -> {
                     newMeal.setId(id);

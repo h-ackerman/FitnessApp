@@ -17,6 +17,16 @@ public class Meal {
     private double protein;
     private double carbs;
     private double fats;
+    private String image;
+
+    // Getter and setter for image
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public Long getId() {
         return id;
