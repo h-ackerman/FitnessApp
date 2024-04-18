@@ -160,5 +160,6 @@
 
 
 ## Applications ports
-- react is running on port 3000
+- react admin is running on port 3000
+- react user is running on port 3001
 - spring is running on port 8080
