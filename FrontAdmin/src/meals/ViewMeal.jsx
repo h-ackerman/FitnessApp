@@ -1,4 +1,4 @@
-// This component shows when we click on view meal icon of a particular meal
+// This component apprears when we click on view meal icon of a particular meal
 
 
 import React, { useEffect, useState } from "react";
