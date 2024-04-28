@@ -1,7 +1,5 @@
 # README
 
-# FrontEnd (React)
-
 ## Pulling GitHub Project and Running the React App
 
 ### Prerequisites
@@ -65,7 +63,7 @@
    - To stop the server, press `Ctrl + C` in the terminal where the server is running. 
 
 
-#### Collaboration
+# Collaboration
 
 ## Pulling and Pushing Changes to a Git Branch
 
