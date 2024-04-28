@@ -6,7 +6,9 @@
 
 ### Prerequisites
 - **Git**: Ensure Git is installed on your system.
-- **Node.js**: Ensure Node.js is installed. 
+- **Node.js**: Ensure Node.js is installed.
+- **Expo cli**: Ensure Expo cli is installed.
+- **Spring boot**: for backend
 
 ### Steps
 
@@ -20,33 +22,50 @@
      git clone https://github.com/zineb-hija/FitnessApp.git
      ```
 
-2. **Navigate to Project Directory**:
+2. **Navigate to backend Directory**:
    - Once cloning is complete, navigate to the project directory:
      ```
-     cd <project_name>
+     cd <backend>
      ```
 
-3. **Install Dependencies**:
+3. **Run spring boot**:
+   - Open backend folder with intellij
+   - Go to FitnessApplication
+   - Run the app (it will run on port 8080)
+
+
+4. **Navigate to FrontUser or FrontAdmin Directory**:
+   - Run:
+     ```
+     cd <frontUser> or cd <frontAdmin>
+     ```
+
+5. **Install Dependencies**:
    - Run:
      ```
      npm install
      ```
    This installs project dependencies specified in `package.json`.
 
-4. **Run the Application**:
+
+6. **Run the Application**:
    - Start the React application with:
      ```
      npm run dev
      ```
    This starts the development server and opens the app in your default browser.
 
-5. **Accessing the Application**:
-   - Visit `http://localhost:3000` in your browser.
 
-6. **Stopping the Server**:
+7. **Accessing the Application**:
+   - Visit `http://localhost:3000` in your browser to access the admin page.
+   - Visit `http://localhost:3001` in your browser to access the user page.
+
+
+8. **Stopping the Server**:
    - To stop the server, press `Ctrl + C` in the terminal where the server is running. 
 
-#### When app is installed
+
+#### Collaboration
 
 ## Pulling and Pushing Changes to a Git Branch
 
@@ -61,24 +80,21 @@
      ```
    This command fetches the latest changes from the remote repository.
 
-2. **Checkout Your Branch**:
-   - If you're not already on your desired branch, switch to it by running, the branche should already be created:
+2. **pull all changes from the main branch**:
+   - Run:
      ```
-     git checkout <branch_name>
+     git pull
      ```
-   Replace `<branch_name>` with the name of your branch.
-
-3. **Merge Changes**:
-   - Once you have fetched the changes and are on your branch, merge the changes from the remote repository into your local branch by running:
-     ```
-     git merge origin/<branch_name>
-     ```
-   Replace `<branch_name>` with the name of the remote branch you want to merge.
 
 ### Pushing Changes
+1. **Create a new branch locally**:
+   - Create a new branch in your local Git repository where you've made changes.
+   - Run:
+     ```
+     git checkout -b new-branch-name
+     ```
 
-1. **Add and Commit Changes**:
-   - Make your changes to the project files.
+2. **Add and Commit Changes**:
    - Add the changes to the staging area by running:
      ```
      git add .
@@ -88,7 +104,7 @@
      git commit -m "Your descriptive commit message here"
      ```
 
-2. **Push Changes to Remote Repository**:
+3. **Push the new branch to GitHub**:
    - Push your changes to the remote repository by running:
      ```
      git push origin <branch_name>
@@ -98,12 +114,12 @@
 ### Additional Information
 
 - **Reviewing Changes**:
-  - Before pushing changes, it's a good practice to review them locally to ensure they are correct and meet project requirements.
+  - Before pushing changes, review them locally to ensure they are correct and meet project requirements.
 
-- **Collaboration**:
-  - Communicate with your team members to avoid conflicts and ensure smooth collaboration when pushing changes to shared branches.
+- **Pull Requests**:
+  - All branches can only be merged throught pull requests.
 
-# BackEnd (Spring boot)
+# Docker
 
 ## Build and run Docker image for spring boot
 
@@ -158,8 +174,3 @@
    ```
 4. **Check the repository on Docker Hub**
 
-
-## Applications ports
-- react admin is running on port 3000
-- react user is running on port 3001
-- spring is running on port 8080
