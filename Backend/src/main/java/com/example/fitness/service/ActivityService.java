@@ -40,9 +40,9 @@ public class ActivityService {
     public Activity updateActivity(Activity newActivity, Long id) {
         return activityRepository.findById(id)
                 .map(activity -> {
-                    activity.setNom(newActivity.getNom());
-                    activity.setKcal(newActivity.getKcal());
-                    activity.setDate(newActivity.getDate());
+                    activity.setName(newActivity.getName());
+                    activity.setCalories(newActivity.getCalories());
+
                     activity.setType(newActivity.getType());
                     activity.setDescription(newActivity.getDescription());
 

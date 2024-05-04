@@ -12,20 +12,49 @@ public class Activity {
      @Id
      @GeneratedValue(strategy = GenerationType.IDENTITY)
      private Long id;
+     private String name;
+    private Integer calories;
+    private Integer duration;
+    private String image;
+    private String type;
 
-     private String nom;
+    private String description;
 
-     private Integer kcal;
+    public String getImage() {
+        return image;
+    }
 
-     private LocalDate date;
+    public void setImage(String image) {
+        this.image = image;
+    }
 
-     private String type;
+    public String getName() {
+        return name;
+    }
 
-     private String description;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getCalories() {
+        return calories;
+    }
+
+    public void setCalories(Integer calories) {
+        this.calories = calories;
+    }
 
 
 
-      public Long getId() {
+    public Integer getDuration() {
+        return duration;
+    }
+
+    public void setDuration(Integer duration) {
+        this.duration = duration;
+    }
+
+    public Long getId() {
            return id;
       }
 
@@ -33,29 +62,8 @@ public class Activity {
            this.id = id;
       }
 
-      public String getNom() {
-           return nom;
-      }
 
-      public void setNom(String nom) {
-           this.nom = nom;
-      }
 
-      public Integer getKcal() {
-           return kcal;
-      }
-
-      public void setKcal(Integer kcal) {
-           this.kcal = kcal;
-      }
-
-      public LocalDate getDate() {
-           return date;
-      }
-
-      public void setDate(LocalDate date) {
-           this.date = date;
-      }
 
       public String getType() {
            return type;

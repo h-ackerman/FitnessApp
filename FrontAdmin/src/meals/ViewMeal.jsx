@@ -1,6 +1,7 @@
-// This component apprears when we click on view meal icon of a particular meal
+// This component shows when we click on view meal icon of a particular meal
 
 
+// eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Card from 'react-bootstrap/Card';
@@ -31,6 +32,7 @@ export default function ViewMeal(props) {
     };
 
     fetchMeal();
+  // eslint-disable-next-line react/prop-types
   }, [props.id]);
 
   return (

@@ -15,7 +15,7 @@ export default function MenuList({ darkTheme }) {
   const menuItems = [
     { key: 'home', icon: <PieChartOutlined />, label: 'Dashboard' },
     { key: '/meal', icon: <DatabaseOutlined />, label: 'Meals' },
-    { key: '/activity', icon: <HomeOutlined />, label: 'Activity' },
+    { key: '/activitylist', icon: <HomeOutlined />, label: 'Activity' },
     { key: 'admin', icon: <UserOutlined />, label: 'Admin' },
   ];
 
