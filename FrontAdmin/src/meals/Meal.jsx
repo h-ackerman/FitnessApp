@@ -1,10 +1,6 @@
 // This component shows the list of all meals 
 // It also contains the loading of the meals list and delete implementation
-
-
-// eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { Modal, Button, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Form, InputGroup } from "react-bootstrap";
 import AddMeal from "./AddMeal";
@@ -12,6 +8,7 @@ import Swal from "sweetalert2";
 import "primeicons/primeicons.css";
 import ViewMeal from "./ViewMeal";
 import EditMeal from "./EditMeal";
+import { request } from "../utils/UserApi";
 
 
 
@@ -54,8 +51,10 @@ export default function Meal() {
     const url = "http://localhost:8080/meal/";
     console.log("Fetching data from:", url);
     try {
-      const result = await axios.get(url);
-      console.log("Data received:", result.data);
+      const result = await request({  // we use request function in our utils/userApi file
+        url:url,
+        method: 'GET'
+      })
       setMeals(result.data);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -65,7 +64,10 @@ export default function Meal() {
   const deleteMeal = async () => {
     if (mealToDeleteId) {
       try {
-        await axios.delete(`http://localhost:8080/meal/${mealToDeleteId}`);
+        await request({  // we use request function in our utils/userApi file
+          url:`http://localhost:8080/meal/${mealToDeleteId}`,
+          method: 'DELETE'
+        })
         loadMeals();
         setShowDeleteConfirmation(false);
         // Show SweetAlert for successful deletion

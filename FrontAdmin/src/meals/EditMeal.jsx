@@ -1,10 +1,8 @@
 // This component contains the form for editing a meal
-
-
 import { useState, useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
-import axios from "axios";
 import Swal from 'sweetalert2';
+import { request } from "../utils/UserApi";
 
 
 export default function EditMeal(props) {
@@ -33,10 +31,12 @@ export default function EditMeal(props) {
 
   const fetchMeal = async () => {
     try {
-      const response = await axios.get(`http://localhost:8080/meal/${props.id}`);
+      const response = await request({  // we use request function in our utils/userApi file
+        url:`http://localhost:8080/meal/${props.id}`,
+        method: 'GET'
+      })
       console.log(response);
-      setMeal(response.data);
-
+      setMeal(response.data); 
     } catch (error) {
       console.error("Error fetching meal:", error);
     }
@@ -46,7 +46,12 @@ export default function EditMeal(props) {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:8080/meal/${props.id}`, meal); // Pass the meal object as the second argument
+      await request({  // we use request function in our utils/userApi file
+        url:`http://localhost:8080/meal/${props.id}`,
+        method: 'PUT',
+        data: meal
+      })
+
       Swal.fire({
         icon: 'success',
         title: 'Success!',

@@ -1,8 +1,4 @@
-
-
-// eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { Modal, Button,OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Form, InputGroup } from "react-bootstrap";
 import AddActivity from "./Addactivity";
@@ -10,6 +6,7 @@ import Swal from "sweetalert2";
 import "primeicons/primeicons.css";
 import ViewActivity from "./Viewactivity";
 import EditActivity from "./Editactivity";
+import { request } from "../utils/UserApi";
 
 export default function ActivityList() {
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
@@ -48,7 +45,10 @@ export default function ActivityList() {
   const loadActivities = async () => {
     const url = "http://localhost:8080/activity/";
     try {
-      const result = await axios.get(url);
+      const result = await request({  // we use request function in our utils/userApi file
+        url:url,
+        method: 'GET'
+      })
       setActivities(result.data);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -58,7 +58,10 @@ export default function ActivityList() {
   const deleteActivity = async () => {
     if (activityToDeleteId) {
       try {
-        await axios.delete(`http://localhost:8080/activity/${activityToDeleteId}`);
+        await request({  // we use request function in our utils/userApi file
+          url:`http://localhost:8080/activity/${activityToDeleteId}`,
+          method: 'DELETE'
+        })
         loadActivities();
         setShowDeleteConfirmation(false);
         Swal.fire({

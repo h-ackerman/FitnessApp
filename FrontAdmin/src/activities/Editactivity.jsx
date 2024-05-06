@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
-import axios from "axios";
 import Swal from 'sweetalert2';
+import { request } from "../utils/UserApi";
 
 
 export default function Editactivity(props) {
@@ -23,13 +23,14 @@ export default function Editactivity(props) {
 
   useEffect(() => {
     fetchActivity();
-  // eslint-disable-next-line react/prop-types, react-hooks/exhaustive-deps
   }, [props.id]);
 
   const fetchActivity = async () => {
       try {
-        // eslint-disable-next-line react/prop-types
-        const response = await axios.get(`http://localhost:8080/activity/${props.id}`);
+        const response = await request({  // we use request function in our utils/userApi file
+          url:`http://localhost:8080/activity/${props.id}`,
+          method: 'GET'
+        })
         console.log(response);
         setActivity(response.data);
         
@@ -37,14 +38,15 @@ export default function Editactivity(props) {
         console.error("Error fetching activity:", error);
       }
     };
-// eslint-disable-next-line react/prop-types
-console.log(props.id);
 
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      // eslint-disable-next-line react/prop-types
-      await axios.put(`http://localhost:8080/activity/${props.id}`, activity); // Pass the activity object as the second argument
+      await request({  // we use request function in our utils/userApi file
+        url:`http://localhost:8080/activity/${props.id}`,
+        method: 'PUT',
+        data: activity
+      })
       Swal.fire({
         icon: 'success',
         title: 'Success!',

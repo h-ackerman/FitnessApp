@@ -13,7 +13,6 @@ import java.nio.file.Paths;
 import java.util.List;
 
 @RestController
-@CrossOrigin("http://localhost:3000/")
 @RequestMapping("/meal")
 
 public class MealController {
@@ -35,18 +34,10 @@ public class MealController {
         return mealService.getMealById(id);
     }
 
-
-
     @PostMapping("/addMeal")
     public Meal saveMeal(@RequestBody Meal meal) {
         return mealService.saveMeal(meal);
     }
-
-
-
-
-
-
 
     @PutMapping("/{id}")
     public Meal updateMeal(@RequestBody Meal newMeal, @PathVariable Long id){

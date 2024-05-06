@@ -1,8 +1,7 @@
-import axios from "axios";
-// eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import Swal from 'sweetalert2';
+import { request } from "../utils/UserApi";
 
 export default function Addactivity() {
   const [activity, setActivity] = useState({
@@ -24,8 +23,11 @@ export default function Addactivity() {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log(activity);
-      await axios.post("http://localhost:8080/activity/addActivity", activity);
+      await request({  // we use request function in our utils/userApi file
+        url:"http://localhost:8080/activity/addActivity",
+        method: 'POST',
+        data: activity
+      })
       // Show alert after successful submission
       Swal.fire({
         icon: 'success',
@@ -115,7 +117,7 @@ export default function Addactivity() {
       </Form.Group>
       <Form.Group>
          <Form.Control
-            type="text"
+            type="number"
             placeholder="Enter duration*"
             name="duration"
             value={duration}
