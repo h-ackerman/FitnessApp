@@ -1,6 +1,6 @@
 import React from 'react';
 import { Menu } from 'antd';
-import { HomeOutlined, PieChartOutlined, DatabaseOutlined, UserOutlined } from '@ant-design/icons';
+import { HomeOutlined, PieChartOutlined, DatabaseOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 
 export default function MenuList({ darkTheme }) {
@@ -16,7 +16,6 @@ export default function MenuList({ darkTheme }) {
     { key: 'home', icon: <PieChartOutlined />, label: 'Dashboard' },
     { key: '/meal', icon: <DatabaseOutlined />, label: 'Meals' },
     { key: '/activitylist', icon: <HomeOutlined />, label: 'Activity' },
-    { key: 'admin', icon: <UserOutlined />, label: 'Admin' },
   ];
 
   return (

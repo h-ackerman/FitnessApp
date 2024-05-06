@@ -4,7 +4,6 @@ import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import Logo from './Logo';
 import MenuList from './MenuList';
 import ToggleThemeButton from './ToggleThemeButton';
-import AppRoutes from '../AppRoutes';
 
 const { Sider } = Layout;
 

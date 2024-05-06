@@ -1,0 +1,8 @@
+.home {
+    background-color: rgba(211, 218, 225, 0.753);
+    width: 150%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

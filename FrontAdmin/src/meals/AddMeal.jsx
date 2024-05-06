@@ -1,10 +1,8 @@
 // This component contains the form for adding new meal
-
-
-import axios from "axios";
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import Swal from 'sweetalert2';
+import { request } from "../utils/UserApi";
 
 // creation of a menu item object state
 export default function AddMeal() {
@@ -29,9 +27,13 @@ export default function AddMeal() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    const url = 'http://localhost:8080/meal/addMeal'
     try {
-      console.log(meal);
-      await axios.post("http://localhost:8080/meal/addMeal", meal);
+      await request({  // we use request function in our utils/userApi file
+        url:url,
+        method: 'POST',
+        data: meal
+      })
       // Show alert after successful submission
       Swal.fire({
         icon: 'success',

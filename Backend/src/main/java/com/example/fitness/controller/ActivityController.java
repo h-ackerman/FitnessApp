@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin("http://localhost:3000/") // Adjust CORS configuration as needed
 @RequestMapping("/activity")
 public class ActivityController {
 

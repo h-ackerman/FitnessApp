@@ -1,12 +1,7 @@
 // This component shows when we click on view meal icon of a particular meal
-
-
-// eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import Card from 'react-bootstrap/Card';
-
-
+import { request } from "../utils/UserApi";
 
 export default function ViewMeal(props) {
   const [meal, setMeal] = useState({
@@ -23,7 +18,10 @@ export default function ViewMeal(props) {
   useEffect(() => {
     const fetchMeal = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/meal/${props.id}`);
+        const response = await request({  // we use request function in our utils/userApi file
+          url:`http://localhost:8080/meal/${props.id}`,
+          method: 'GET'
+        })
         setMeal(response.data);
       } catch (error) {
         console.error("Error fetching meal:", error);
@@ -32,7 +30,6 @@ export default function ViewMeal(props) {
     };
 
     fetchMeal();
-  // eslint-disable-next-line react/prop-types
   }, [props.id]);
 
   return (
