@@ -1,5 +1,3 @@
-// import AppRoutes from './AppRoutes';
-
 import React, { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import AppHeader from './components/layout/AppHeader';
@@ -7,6 +5,7 @@ import Home from './pages/Home';
 import Login from './pages/login/Login';
 import Signup from './pages/signup/Signup';
 import Profile from './pages/profile/Profile';
+import ApiTest from './ApiTest';
 import OAuth2RedirectHandler from './pages/oauth2/OAuth2RedirectHandler';
 import NotFound from './components/common/NotFound';
 import LoadingIndicator from './components/common/LoadingIndicator';
@@ -55,6 +54,7 @@ const App = () => {
       <div className="app-body">
         <Routes>
           <Route exact path="/" element={<Home/>}></Route>
+          <Route exact path="/test" element={<ApiTest/>} />
           {/* <PrivateRoute
             path="/profile"
             authenticated={authenticated}

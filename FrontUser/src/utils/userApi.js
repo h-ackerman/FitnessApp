@@ -35,6 +35,18 @@ export function getCurrentUser() {
     });
 }
 
+export async function getCurrentUserId() {
+    if(!localStorage.getItem(ACCESS_TOKEN)) {
+        return Promise.reject("No access token set.");
+    }
+
+    const response = await request({
+        url: API_BASE_URL + "/user/me",
+        method: 'GET'
+    });
+    return response.id
+}
+
 export function login(loginRequest) {
     return request({
         url: API_BASE_URL + "/auth/login",
