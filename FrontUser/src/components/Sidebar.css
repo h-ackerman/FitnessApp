@@ -1,0 +1,54 @@
+.sidebar {
+    width: 200px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #8a2be2;
+    color: #fff;
+    display: flex; /* Utilisez flexbox */
+    flex-direction: column; /* Définissez la direction des éléments en colonne */
+    border-radius: 20px;
+  }
+  
+  /* Styles pour le logo, les liens et le lien "Log Out" */
+  
+  
+  .links {
+    margin-top: 20px;
+  }
+  
+  .links ul {
+    list-style: none;
+    padding: 30px;
+  }
+  
+  .links ul li {
+    margin-bottom: 30px;
+    text-decoration: none;
+    margin-left: 10px;
+    font-family: "Manrope", sans-serif;
+  }
+  
+  .links ul li link {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 10px;
+    font-family: "Manrope", sans-serif;
+  }
+  
+  .logout  {
+    margin-top: auto; /* Déplacez le lien "Log Out" en bas de la sidebar */
+    font-family: "Manrope", sans-serif;
+    color: #fff;
+    text-decoration: none;
+    padding: 30px;
+   
+  }
+  .link{
+    font-family: "Manrope", sans-serif;
+    color: #fff;
+    text-decoration: none;
+    margin-left: 10px;
+  }
+
+  

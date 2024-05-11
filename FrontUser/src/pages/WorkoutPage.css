@@ -1,0 +1,9 @@
+.app {
+    display: flex;
+  }
+  
+  .main-content {
+    flex-grow: 1; /* permet au contenu principal de remplir l'espace restant */
+    padding: 20px; /* espace autour du contenu pour la lisibilité */
+  } 
+  
