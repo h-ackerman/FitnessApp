@@ -5,16 +5,11 @@ import Home from './pages/Home';
 import Login from './pages/login/Login';
 import Signup from './pages/signup/Signup';
 import Profile from './pages/profile/Profile';
-import ApiTest from './ApiTest';
 import OAuth2RedirectHandler from './pages/oauth2/OAuth2RedirectHandler';
 import NotFound from './components/common/NotFound';
 import LoadingIndicator from './components/common/LoadingIndicator';
-import { getCurrentUser, getCurrentUserId, request } from './utils/UserApi';
+import { getCurrentUser } from './utils/UserApi';
 import { ACCESS_TOKEN } from './utils/constants';
-import WorkoutPage from './pages/WorkoutPage';
-import Sidebar from './components/Sidebar';
-// import PrivateRoute from './components/common/PrivateRoute';
-import './App.css';
 import Sex from './pages/SexPage/Sex';
 import Age from './pages/AgePage/Age';
 import Weight from './pages/WeightPage/Weight';
@@ -22,7 +17,10 @@ import Height from './pages/HeightPage/Height';
 import Goal from './pages/GoalPage/Goal';
 import Dashboard from './pages/DashboardPage/Dashboard';
 import axios from 'axios';
+import WorkoutPage from './pages/WorkoutPage';
+import Sidebar from './components/Sidebar'
 
+import './App.css';
 
 const App = () => {
   const [authenticated, setAuthenticated] = useState(false);
@@ -33,33 +31,29 @@ const App = () => {
   const [weight, setWeight] = useState(40);
   const [height, setHeight] = useState(160);
   const [goal, setGoal] = useState('');
- 
 
-  const saveData = async () => {
-    try {
-      const accountId = await getCurrentUserId();
-      const userData = {
-        sex: sex,
-        age: age,
-        height: height,
-        weight: weight,
-        goal: goal,
-      };
+
+  console.log("selected sex: ", sex)
+    console.log("selected age: ", age)
+    console.log("selected weight: ", weight)
+    console.log("selected height: ", height)
+    console.log("selected goal: ", goal)
+
+    const saveData = async () => {
+      try {
+        const response = await axios.post('http://localhost:8080/user/register', {
+          sex,
+          age,
+          height,
+          weight,
+          goal,
+        });
   
-      const response = await request({
-        url: `http://localhost:8080/user/register/${accountId}`,
-        method: 'POST',
-        body: JSON.stringify(userData),
-      });
-  
-      console.log(response);
-  
-    } catch (error) {
-      console.error(error);
-    }
-  };
-  
-  
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
   const loadCurrentlyLoggedInUser = () => {
     getCurrentUser()
@@ -89,49 +83,29 @@ const App = () => {
   }
 
   return (
-    <div>
-      <AppHeader authenticated={authenticated} onLogout={handleLogout} />
-      <div className="app">
-        <Sidebar />
-        <div className="app-body">
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route exact path="/test" element={<ApiTest />} />
-            {/* <PrivateRoute
-              path="/profile"
-              authenticated={authenticated}
-              currentUser={currentUser}
-              component={Profile}
-            ></PrivateRoute> */}
-            <Route
-              path="/login"
-              element={<Login authenticated={authenticated} />}
-            />
-            <Route
-              path="/signup"
-              element={<Signup authenticated={authenticated} />}
-            />
-            <Route
-              exact
-              path="/profile"
-              element={
-                <Profile
-                  authenticated={authenticated}
-                  currentUser={currentUser}
-                  component={Profile}
-                />
-              }
-            ></Route>
-            <Route
-              path="/oauth2/redirect"
-              element={<OAuth2RedirectHandler />}
-            ></Route>
-            <Route element={<NotFound />} />
-            <Route path="/workout" element={<WorkoutPage />} />
-          </Routes>
-        </div>
+    <>
+    <AppHeader authenticated={authenticated} onLogout={handleLogout} />
+    <div className="app">
+      <Sidebar />
+      <div className="app-body">
+        <Routes>
+          <Route exact path="/" element={<Home/>}></Route>
+          <Route path="/login" element={<Login authenticated={authenticated} />} />
+          <Route path="/signup" element={<Signup authenticated={authenticated} />} />
+          <Route exact path="/profile" element={<Profile authenticated={authenticated} currentUser={currentUser} component={Profile}/>}></Route>
+          <Route exact path="/sex" element={<Sex setSex={setSex}/>}/>
+          <Route exact path="/age" element={<Age  age={age} setAge={setAge}/>} />
+          <Route exact path="/weight" element={<Weight weight={weight} setWeight={setWeight}/>} />
+          <Route exact path="/height" element={<Height height={height} setHeight={setHeight}/>} />
+          <Route exact path="/goal" element={<Goal goal={goal} setGoal={setGoal} saveData={saveData} />} />
+          <Route exact path="/dashboard" element={<Dashboard />} />
+          <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler/>}></Route>
+          <Route element={<NotFound/>}></Route>
+          <Route path="/workout" element={<WorkoutPage />} />
+        </Routes>
       </div>
     </div>
+    </>
   );
 };
 

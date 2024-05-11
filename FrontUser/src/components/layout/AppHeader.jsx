@@ -5,7 +5,6 @@ import './AppHeader.css';
 const AppHeader = ({ authenticated, onLogout }) => {
     return (
         <header className="app-header">
-            <div className="container">
                 <div className="app-branding">
                     <Link to="/" className="app-title">Fitness App</Link>
                 </div>
@@ -32,7 +31,6 @@ const AppHeader = ({ authenticated, onLogout }) => {
                         )}
                     </nav>
                 </div>
-            </div>
         </header>
     );
 };
