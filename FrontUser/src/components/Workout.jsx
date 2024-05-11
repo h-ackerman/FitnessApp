@@ -53,7 +53,7 @@ const Workout = () => {
       }
     };
     getActivitiesOfUser(); // Appel de la fonction pour récupérer les activités lors du montage du composant
-  }, []);
+  }, [userActivities]);
 
   return (
     <div className='Workout'>
@@ -79,25 +79,6 @@ const Workout = () => {
           </div>
         </div>
 
-        {/* Achievements */}
-        <h1 className='achiv'> Achievements :</h1>
-        <div className="achievements-container">
-          {/* Achievement pour la durée */}
-          <div className="achievement">
-            <FontAwesomeIcon icon={faHourglass} size="2x" className="icon" />
-            <span>Duration</span>
-          </div>
-          {/* Achievement pour les kcal */}
-          <div className="achievement">
-            <FontAwesomeIcon icon={faFire} size="2x" className="icon" />
-            <span>Kcal</span>
-          </div>
-          {/* Achievement pour le temps */}
-          <div className="achievement">
-            <FontAwesomeIcon icon={faClock} size="2x" className="icon" />
-            <span>Time</span>
-          </div>
-        </div>
       </div>
       <div className='Schedule'>
       <div className='myschedule'>My schedule</div>

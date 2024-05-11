@@ -1,27 +1,12 @@
 .workout-container {
-  
-    width: 70%;
     display: flex; /* Ajout de flex pour le conteneur principal */
     flex-direction: column; 
   }
-  .Schedule {
-   
-    margin-top: 20px; /* Ajoutez une marge pour l'espacement */
-    width:200px;
-    color: var(--Slate-600, #475569);
-  font-family: Manrope;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  margin-left: 110px;
 
-    
-   
-    
-  }
   .Workout{
+    width: 100%;
     display: flex;
+    justify-content: space-between;
   }
   .banner {
     width: 786px;
@@ -175,5 +160,6 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    margin-left: 50px;
   }
   

@@ -12,14 +12,10 @@ function Sidebar() {
 
       <div className="links">
         <ul>
-          <li ><FontAwesomeIcon icon={faHome} /><Link to="/" className='link'>Dashboard</Link></li>
+          <li ><FontAwesomeIcon icon={faHome} /><Link to="/dashboard" className='link'>Dashboard</Link></li>
           <li><FontAwesomeIcon icon={faDumbbell} /><Link to="/workout" className='link'>Workout</Link></li>
           <li><FontAwesomeIcon icon={faUtensils} /><Link to="/meals" className='link'>Meals</Link></li>
         </ul>
-      </div>
-
-      <div className="logout">
-        <FontAwesomeIcon icon={faSignOutAlt} /><Link to="/logout" className='link'>Log Out</Link>
       </div>
     </div>
   );

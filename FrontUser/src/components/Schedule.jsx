@@ -10,7 +10,7 @@ const Schedule = ({ schedule }) => {
             <div className='schedule-details'>
               <div className='schedule-element1'>{item.date}</div>
               <div className='schedule-element2'>{item.name}</div>
-              <div className='schedule-element3'>{item.duration}</div>
+              <div className='schedule-element3'>{item.duration} min</div>
             </div>
             <div className='sets'>{item.calories} Kcal</div>
           </div>
