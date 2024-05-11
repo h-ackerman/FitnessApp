@@ -1,0 +1,30 @@
+.nameactivity{
+    color: var(--White, #FFF);
+font-family: Manrope;
+font-size: 25px;
+font-style: normal;
+font-weight: 700;
+line-height: 120%;
+padding: 20px;
+ }
+ .description-group{
+    color: var(--White, #FFF);
+font-family: Manrope;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+margin: 12px;
+ }
+ .description{
+    margin-top: 12px;
+ }
+ .activity-description .activity-image {
+    width: 50%; /* Set width to 100% of its container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Optional: Rounds the corners of the image */
+    margin-bottom: 20px; /* Space between the image and the text below */
+  }
+  .flexing-image{
+    display: flex;
+  }

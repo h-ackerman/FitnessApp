@@ -11,6 +11,8 @@ import NotFound from './components/common/NotFound';
 import LoadingIndicator from './components/common/LoadingIndicator';
 import { getCurrentUser } from './utils/UserApi';
 import { ACCESS_TOKEN } from './utils/constants';
+import WorkoutPage from './pages/WorkoutPage';
+import Sidebar from './components/Sidebar';
 // import PrivateRoute from './components/common/PrivateRoute';
 import './App.css';
 
@@ -47,33 +49,50 @@ const App = () => {
   }
 
   return (
-    <div className="app">
-      <div className="app-top-box">
-        <AppHeader authenticated={authenticated} onLogout={handleLogout} />
-      </div>
-      <div className="app-body">
-        <Routes>
-          <Route exact path="/" element={<Home/>}></Route>
-          <Route exact path="/test" element={<ApiTest/>} />
-          {/* <PrivateRoute
-            path="/profile"
-            authenticated={authenticated}
-            currentUser={currentUser}
-            component={Profile}
-          ></PrivateRoute> */}
-          <Route path="/login" element={<Login authenticated={authenticated} />} />
-          <Route path="/signup" element={<Signup authenticated={authenticated} />} />
-          <Route exact path="/profile" element={<Profile authenticated={authenticated} 
-          currentUser={currentUser} 
-          component={Profile}/>}>
-          </Route>
-          <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler/>}></Route>
-          <Route element={<NotFound/>}></Route>
-        </Routes>
+    <div>
+      <AppHeader authenticated={authenticated} onLogout={handleLogout} />
+      <div className="app">
+        <Sidebar />
+        <div className="app-body">
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/test" element={<ApiTest />} />
+            {/* <PrivateRoute
+              path="/profile"
+              authenticated={authenticated}
+              currentUser={currentUser}
+              component={Profile}
+            ></PrivateRoute> */}
+            <Route
+              path="/login"
+              element={<Login authenticated={authenticated} />}
+            />
+            <Route
+              path="/signup"
+              element={<Signup authenticated={authenticated} />}
+            />
+            <Route
+              exact
+              path="/profile"
+              element={
+                <Profile
+                  authenticated={authenticated}
+                  currentUser={currentUser}
+                  component={Profile}
+                />
+              }
+            ></Route>
+            <Route
+              path="/oauth2/redirect"
+              element={<OAuth2RedirectHandler />}
+            ></Route>
+            <Route element={<NotFound />} />
+            <Route path="/workout" element={<WorkoutPage />} />
+          </Routes>
+        </div>
       </div>
     </div>
   );
 };
 
 export default App;
-
