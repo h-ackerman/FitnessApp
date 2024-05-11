@@ -19,6 +19,8 @@ import Dashboard from './pages/DashboardPage/Dashboard';
 import axios from 'axios';
 import WorkoutPage from './pages/WorkoutPage';
 import Sidebar from './components/Sidebar'
+import { getCurrentUserId } from './utils/UserApi';
+import { request } from './utils/UserApi';
 
 import './App.css';
 
@@ -41,15 +43,23 @@ const App = () => {
 
     const saveData = async () => {
       try {
-        const response = await axios.post('http://localhost:8080/user/register', {
-          sex,
-          age,
-          height,
-          weight,
-          goal,
+        const accountId = await getCurrentUserId();
+        const userData = {
+          sex: sex,
+          age: age,
+          height: height,
+          weight: weight,
+          goal: goal,
+        };
+    
+        const response = await request({
+          url: `http://localhost:8080/user/register/${accountId}`,
+          method: 'POST',
+          body: JSON.stringify(userData),
         });
-  
-        console.log(response.data);
+    
+        console.log(response);
+    
       } catch (error) {
         console.error(error);
       }

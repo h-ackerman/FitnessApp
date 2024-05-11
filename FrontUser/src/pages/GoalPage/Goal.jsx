@@ -10,7 +10,8 @@ const GoalSelector = ({ goal, setGoal, saveData }) => {
     };
 
     return (
-        <div>
+        <div className='cardZ'>
+        <div className='card-content'>
             <h2>What's your Goal ?</h2>
             <p>This help us create you personalized plan</p>
             <div className="goal-selector">
@@ -28,6 +29,7 @@ const GoalSelector = ({ goal, setGoal, saveData }) => {
                 <Link to="/height"><button className="buttonp">Previous</button></Link>
                 <button className="buttonn" onClick={saveData}>Finish</button>
             </div>
+        </div>
         </div>
     );
 };
