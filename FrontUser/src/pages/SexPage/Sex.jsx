@@ -8,7 +8,9 @@ const Sex = ({ setSex }) => {
     };
 
     return (
-        <div className="container">
+        <div className="cardZ">
+            <div className="card-content">
+
             <h1>Tell us about yourself!</h1>
             <div>
                 <button className="button-male" onClick={() => handleGenderSelection('Male')}>Male</button>
@@ -18,7 +20,8 @@ const Sex = ({ setSex }) => {
                 <Link to="/age"><button className="buttonn">Next</button></Link>
             </div>
         </div>
+        </div>
     );
 };
 
-export default Sex;
+export default Sex;

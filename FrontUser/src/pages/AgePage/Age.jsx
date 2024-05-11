@@ -10,7 +10,8 @@ const AgeSelector = ({ age, setAge }) => {
     };
 
     return (
-        <div>
+        <div className='cardZ'>
+        <div className='card-content'>
             <h2>How old are you?</h2>
             <p>This helps us create your personalized plan</p>
             <div className="age-selector">
@@ -28,6 +29,7 @@ const AgeSelector = ({ age, setAge }) => {
                 <Link to="/sex"><button className="buttonp">Previous</button></Link> {/* Use className instead of class */}
                 <Link to="/weight"><button className="buttonn">Next</button></Link> {/* Use className instead of class */}
             </div>
+        </div>
         </div>
     );
 };

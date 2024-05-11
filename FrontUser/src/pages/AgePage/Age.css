@@ -1,3 +1,16 @@
+.cardZ {
+    width: 400px;
+    margin: 0 auto; /* Pour centrer horizontalement */
+    background-color: #f3f5fc;;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(186, 57, 57, 0.1); /* Ombre légère */
+}
+
+.card-content {
+    padding: 20px;
+    border-radius:30px;
+}
+
 .age-selector {
     font-family: Arial, sans-serif;
     overflow: auto;
@@ -15,32 +28,35 @@
 }
 
 h2 {
-    
-    font-size: 3.2em;
+    font-size: 1.5em;
     line-height: 1.1;
-    
 }
-p{
-   
+
+p {
     font-weight: bold;
 }
+
 .buttons {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
 }
 
-.buttonn  {
+.buttonn {
     padding: 10px;
     font-size: 1em;
     cursor: pointer;
     background-color: rgb(71, 71, 208); /* Set the button color */
+    border-color: #f3f5fc;
     color: white; /* Set the text color */
+    border-radius: 12px;
 }
+
 .buttonp {
     padding: 10px;
     font-size: 1em;
     cursor: pointer;
     background-color: rgb(0, 0, 0); /* Set the button color */
     color: white; /* Set the text color */
+    border-radius: 12px;
 }

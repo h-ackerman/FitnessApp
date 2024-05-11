@@ -12,7 +12,8 @@ const WeightSelector = ({weight,setWeight}) => {
      
 
     return (
-        <div>
+        <div className='cardZ'>
+        <div className='card-content'>
             <h2>Quel est votre poids ?</h2>
             <p>Vous pouvez toujours changer cela plus tard</p>
             <div className="weight-selector">
@@ -30,6 +31,7 @@ const WeightSelector = ({weight,setWeight}) => {
                 <Link to="/age"><button className="buttonp">Previous</button></Link> {/* Use className instead of class */}
                 <Link to="/height"><button className="buttonn">Next</button></Link> {/* Use className instead of class */}
             </div>
+        </div>
         </div>
     );
 };

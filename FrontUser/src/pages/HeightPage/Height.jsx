@@ -10,7 +10,8 @@ const HeightSelector = ({ height, setHeight }) => {
     
 
     return (
-        <div>
+        <div className='cardZ'>
+        <div className='card-content'>
             <h2>What's you height ?</h2>
             <p>This help us create you personalized plan</p>
             <div className="height-selector">
@@ -28,6 +29,7 @@ const HeightSelector = ({ height, setHeight }) => {
                 <Link to="/weight"><button className="buttonp">Previous</button></Link> {/* Use className instead of class */}
                 <Link to="/goal"><button className="buttonn">Next</button></Link> {/* Use className instead of class */}
             </div>
+        </div>
         </div>
     );
 };
