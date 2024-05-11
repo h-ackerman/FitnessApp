@@ -23,12 +23,12 @@ public class UserController {
     }
 
     @PostMapping("/register/{accountId}")
-    public ResponseEntity<String> registerUser(@RequestBody User user, @PathVariable Long accountId) {
+    public ResponseEntity<User> registerUser(@RequestBody User user, @PathVariable Long accountId) {
         try {
-            userService.saveUser(user, accountId);
-            return ResponseEntity.ok("User registered successfully");
+            User registeredUser = userService.saveUser(user, accountId);
+            return ResponseEntity.ok(registeredUser);
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to register user");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
 }

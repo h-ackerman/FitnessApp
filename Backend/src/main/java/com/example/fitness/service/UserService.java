@@ -27,28 +27,19 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
-//    public User saveUser(User user) {
-//        return userRepository.save(user);
-//    }
 
     public User saveUser(User user, Long accountId) {
         Account account = accountRepository.findById(accountId)
                 .orElseThrow(() -> new RuntimeException("Account not found"));
 
-        // Définir l'objet Account associé à l'utilisateur
+
         user.setAccount(account);
 
-        // Enregistrer l'utilisateur avec son compte associé
         return userRepository.save(user);
     }
-
 
     public List<User> findAll() {
         return userRepository.findAll();
     }
-
-
-
-
 
 }

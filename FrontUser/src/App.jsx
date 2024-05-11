@@ -31,7 +31,7 @@ const App = () => {
   const [weight, setWeight] = useState(40);
   const [height, setHeight] = useState(160);
   const [goal, setGoal] = useState('');
-
+ 
 
   const saveData = async () => {
     try {
@@ -42,21 +42,22 @@ const App = () => {
         height: height,
         weight: weight,
         goal: goal,
-        accountId: accountId
       };
-      console.log(userData)
-
+  
       const response = await request({
-        url: `http://localhost:8080/user/register?accountId=${accountId}`,
+        url: `http://localhost:8080/user/register/${accountId}`,
         method: 'POST',
-        data: userData
-      })
-
-      console.log(response.data);
+        body: JSON.stringify(userData),
+      });
+  
+      console.log(response);
+  
     } catch (error) {
       console.error(error);
     }
   };
+  
+  
 
   const loadCurrentlyLoggedInUser = () => {
     getCurrentUser()
