@@ -9,17 +9,57 @@ import ApiTest from './ApiTest';
 import OAuth2RedirectHandler from './pages/oauth2/OAuth2RedirectHandler';
 import NotFound from './components/common/NotFound';
 import LoadingIndicator from './components/common/LoadingIndicator';
-import { getCurrentUser } from './utils/UserApi';
+import { getCurrentUser, getCurrentUserId, request } from './utils/UserApi';
 import { ACCESS_TOKEN } from './utils/constants';
 import WorkoutPage from './pages/WorkoutPage';
 import Sidebar from './components/Sidebar';
 // import PrivateRoute from './components/common/PrivateRoute';
 import './App.css';
+import Sex from './pages/SexPage/Sex';
+import Age from './pages/AgePage/Age';
+import Weight from './pages/WeightPage/Weight';
+import Height from './pages/HeightPage/Height';
+import Goal from './pages/GoalPage/Goal';
+import Dashboard from './pages/DashboardPage/Dashboard';
+import axios from 'axios';
+
 
 const App = () => {
   const [authenticated, setAuthenticated] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [sex, setSex] = useState('');
+  const [age, setAge] = useState(20);
+  const [weight, setWeight] = useState(40);
+  const [height, setHeight] = useState(160);
+  const [goal, setGoal] = useState('');
+ 
+
+  const saveData = async () => {
+    try {
+      const accountId = await getCurrentUserId();
+      const userData = {
+        sex: sex,
+        age: age,
+        height: height,
+        weight: weight,
+        goal: goal,
+      };
+  
+      const response = await request({
+        url: `http://localhost:8080/user/register/${accountId}`,
+        method: 'POST',
+        body: JSON.stringify(userData),
+      });
+  
+      console.log(response);
+  
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  
+  
 
   const loadCurrentlyLoggedInUser = () => {
     getCurrentUser()

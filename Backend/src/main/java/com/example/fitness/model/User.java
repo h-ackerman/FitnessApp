@@ -1,9 +1,6 @@
 package com.example.fitness.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class User {
@@ -11,15 +8,14 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
 
     private Long id;
-
-    private String name;
     private String sex;
     private int age;
     private int height;
     private int weight;
     private String goal;
-    private String activityLevel;
-    private String location;
+    @OneToOne
+    @JoinColumn(name = "account_id", referencedColumnName = "id")
+    private Account account;
 
     public Long getId() {
         return id;
@@ -29,15 +25,7 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String isSex() {
+    public String getSex() {
         return sex;
     }
 
@@ -77,19 +65,11 @@ public class User {
         this.goal = goal;
     }
 
-    public String getActivityLevel() {
-        return activityLevel;
+    public Account getAccount() {
+        return account;
     }
 
-    public void setActivityLevel(String activityLevel) {
-        this.activityLevel = activityLevel;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
+    public void setAccount(Account account) {
+        this.account = account;
     }
 }
