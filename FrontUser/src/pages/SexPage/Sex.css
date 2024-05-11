@@ -1,0 +1,49 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+   
+  .button-female {
+    margin: 132px;
+  padding: 0; /* Remove padding */
+  width: 140px; /* Set button width */
+  height: 140px; /* Set button height */
+  border-radius: 50%; /* Make buttons round */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+    background-color: #000000;
+    color: white;
+  }
+  .button-male {
+    margin: 132px;
+  padding: 0; /* Remove padding */
+  width: 140px; /* Set button width */
+  height: 140px; /* Set button height */
+  border-radius: 50%; /* Make buttons round */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+    background-color: #4F46E5;
+    color: white;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.buttonn  {
+    padding: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: rgb(71, 71, 208); /* Set the button color */
+    color: white; /* Set the text color */
+}
+
+  
