@@ -5,7 +5,7 @@ import { faClock, faFire, faHourglass } from '@fortawesome/free-solid-svg-icons'
 import ActivityCard from './ActivityCard';
 import ActivityDescription from './ActivityDescription';
 import Schedule from './Schedule';
-import { getCurrentUserId, request } from '../utils/UserApi';
+import { getCurrentUserId, request } from './utils/UserApi';
 
 
 const Workout = () => {
