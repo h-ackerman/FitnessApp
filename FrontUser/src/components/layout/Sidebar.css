@@ -1,5 +1,6 @@
 .sidebar {
     width: 200px;
+    height: auto;
     left: 0;
     top: 0;
     bottom: 0;
@@ -7,7 +8,6 @@
     color: #fff;
     display: flex; /* Utilisez flexbox */
     flex-direction: column; /* Définissez la direction des éléments en colonne */
-    border-radius: 20px;
   }
   
   /* Styles pour le logo, les liens et le lien "Log Out" */

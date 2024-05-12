@@ -18,11 +18,12 @@ import Goal from './pages/GoalPage/Goal';
 import Dashboard from './pages/DashboardPage/Dashboard';
 import axios from 'axios';
 import WorkoutPage from './pages/WorkoutPage';
-import Sidebar from './components/Sidebar'
 import { getCurrentUserId } from './utils/UserApi';
 import { request } from './utils/UserApi';
+import Sidebar from './components/layout/Sidebar';
 
 import './App.css';
+import MealPage from './pages/MealPage';
 
 const App = () => {
   const [authenticated, setAuthenticated] = useState(false);
@@ -112,6 +113,8 @@ const App = () => {
           <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler/>}></Route>
           <Route element={<NotFound/>}></Route>
           <Route path="/workout" element={<WorkoutPage />} />
+          <Route path="/meals" element={<MealPage />} />
+
         </Routes>
       </div>
     </div>

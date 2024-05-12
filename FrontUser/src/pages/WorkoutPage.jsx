@@ -1,4 +1,4 @@
-import Workout from '../components/Workout';
+import Workout from '../Workout';
 
 import './WorkoutPage.css'
 

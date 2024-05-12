@@ -106,7 +106,7 @@
     height: 343.132px;
     flex-shrink: 0;
     border-radius: 16px;
-    background: linear-gradient(150deg, #7C6DD7 4.71%, #C4BAFF 110.44%), linear-gradient(132deg, #FF4C01 3.51%, #FDC9B3 99.4%, rgba(255, 76, 1, 0.12) 101.96%);
+    background: linear-gradient(150deg, #e8e4ff 4.71%, #C4BAFF 110.44%), linear-gradient(132deg, #FF4C01 3.51%, #FDC9B3 99.4%, rgba(255, 76, 1, 0.12) 101.96%);
     backdrop-filter: blur(21.20192527770996px);
     margin-left: 20px; /* Place le carré à gauche */
     margin-top: 20px;
@@ -128,7 +128,7 @@
     align-items: center;
     gap: 10px;
     border-radius: 100px;
-    background: linear-gradient(180deg, #624DE3 0.07%, #5C1B00 151.64%);
+    background: linear-gradient(180deg, #e8b99d 0.07%, #5C1B00 151.64%);
     box-shadow: 0px 23px 42px 0px rgba(0, 0, 0, 0.15);
     margin: 10px;
   
