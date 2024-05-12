@@ -6,6 +6,7 @@ import com.example.fitness.service.AccountActivityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -20,6 +21,16 @@ public class AccountActivityController {
     public AccountActivity addAccountActivity(@PathVariable Long accountId, @PathVariable Long activityId) {
         try {
             return accountActivityService.saveAccountActivity(accountId, activityId);
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to add account activity", e);
+        }
+    }
+    @GetMapping("/account/{accountId}/activity/{activityId}/date/{date}/add")
+    public AccountActivity addAccountActivity(@PathVariable Long accountId, @PathVariable Long activityId, @PathVariable String date) {
+        try {
+            // Convertissez la chaîne de date en LocalDate si nécessaire
+            LocalDate parsedDate = LocalDate.parse(date);
+            return accountActivityService.saveAccountActivity(accountId, activityId, parsedDate);
         } catch (Exception e) {
             throw new RuntimeException("Failed to add account activity", e);
         }
