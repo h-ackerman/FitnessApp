@@ -2,7 +2,7 @@
     font-family: Arial, sans-serif;
     display: flex;
     overflow: auto;
-    width: 50%; /* Adjust this to control the visible width */
+    width: 70%; /* Adjust this to control the visible width */
     margin: 0 auto; /* Center the selector */
 }
 

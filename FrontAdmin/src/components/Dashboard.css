@@ -1,0 +1,30 @@
+/* App.css or any other CSS file */
+
+.summary {
+    background-color: #f0f0f0;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .statistics {
+    display: flex;
+  }
+  
+  .workout-stats, .calories-stats {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .workout-stats h3, .calories-stats h3 {
+    margin-top: 0;
+  }
+  
+  .workout-stats p, .calories-stats p {
+    margin: 0;
+    padding-bottom: 5px;
+  }
+  
+  h1, h2, h3 {
+    color: #333;
+  }
+  

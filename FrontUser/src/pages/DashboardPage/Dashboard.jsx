@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import './Dashboard.css'; 
-import Home from './Home';
+import DashboardContent from './DashboardContent';
 
 
 function Dashboard() { 
@@ -12,7 +12,7 @@ function Dashboard() {
   
     return (
       <div className='grid-container'>
-        <Home />
+        <DashboardContent />
       </div>
     );
   }

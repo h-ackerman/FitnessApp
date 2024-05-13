@@ -9,7 +9,6 @@
 }
 
 .button-female {
-  margin: 54px;
   padding: 0;
   width: 140px;
   height: 140px;
@@ -21,14 +20,13 @@
   background-color: #000000;
   color: white;
 }
-.button-female :hover {
+.button-female:hover {
   background-color: #f3daff;
-  transition: 0,7s;
+  transition: 1s;
 }
  
 
 .button-male {
-  margin: -13px;
   padding: 0;
   width: 140px;
   height: 140px;
@@ -39,6 +37,11 @@
   cursor: pointer;
   background-color: #4F46E5;
   color: white;
+}
+
+.button-male:hover {
+  background-color: #0d00ff;
+  transition: 1s;
 }
 
 .buttons {
@@ -54,4 +57,12 @@
   background-color: rgb(71, 71, 208);
   color: white;
   margin-left: 150px;
+}
+
+.flex1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 70%;
+  justify-content: space-around;
 }

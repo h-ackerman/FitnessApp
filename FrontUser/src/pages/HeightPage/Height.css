@@ -2,6 +2,9 @@
     font-family: Arial, sans-serif;
     overflow: auto;
     height: 200px; /* Adjust this to control the visible height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .height-option {
