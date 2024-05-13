@@ -12,7 +12,7 @@ const Sex = ({ setSex }) => {
             <div className="card-content">
 
             <h1>Tell us about yourself!</h1>
-            <div>
+            <div className='flex1'>
                 <button className="button-male" onClick={() => handleGenderSelection('Male')}>Male</button>
                 <button className="button-female" onClick={() => handleGenderSelection('Female')}>Female</button>
             </div>

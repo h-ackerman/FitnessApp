@@ -13,7 +13,7 @@ export default function MenuList({ darkTheme }) {
 
   // These items will go to the Menu component from "antd" library
   const menuItems = [
-    { key: 'home', icon: <PieChartOutlined />, label: 'Dashboard' },
+    { key: '/dashboard', icon: <PieChartOutlined />, label: 'Dashboard' },
     { key: '/meal', icon: <DatabaseOutlined />, label: 'Meals' },
     { key: '/activitylist', icon: <HomeOutlined />, label: 'Activity' },
   ];

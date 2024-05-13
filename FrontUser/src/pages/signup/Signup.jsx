@@ -69,7 +69,7 @@ const SignupForm = ({ navigate }) => {
         signup(signUpRequest)
             .then(response => {
                 alert("You're successfully registered. Please login to continue!");
-                navigate("/login");
+                navigate("/login"); 
             }).catch(error => {
                 alert('Oops! Something went wrong. Please try again!');
             });

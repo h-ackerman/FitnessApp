@@ -19,6 +19,7 @@ import EditMeal from './meals/EditMeal'
 import ActivityList from './activities/ActivityList';
 import Addactivity from './activities/Addactivity';
 import Editactivity from './activities/Editactivity';
+import Dashboard from './components/Dashboard'
 import './App.css';
 
 function App() {
@@ -82,6 +83,7 @@ function App() {
                 <Route path="/activitylist" element={<ActivityList />} />
                 <Route path="editactivity" element={<Editactivity />} />
                 <Route exact path="/addactivity" element={<Addactivity />} />
+                <Route path="/dashboard" element={<Dashboard />} />
               </Routes>
             </div>
           </div>
