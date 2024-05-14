@@ -43,7 +43,7 @@ RUN npm install
 COPY . .
 
 # Build the React app with Vite
-RUN npm run build
+#RUN npm run build
 
 # Stage 2: Serve the built app using a lightweight HTTP server
 FROM node:14-slim
