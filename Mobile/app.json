@@ -25,6 +25,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "packagerOpts": {
+      "hostType": "lan",
+      "lanType": "ip",
+      "lanIp": "192.168.1.1"
     }
   }
 }
