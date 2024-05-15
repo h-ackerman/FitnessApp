@@ -24,7 +24,12 @@ jobs:
       run: |
         npm install
         npm run build
-      
+
+    - name: Debug
+      run: |
+        ls -al
+        pwd
+
 
     - name: Login to Docker Hub
       run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
