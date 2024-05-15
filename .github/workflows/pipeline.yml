@@ -21,7 +21,9 @@ jobs:
         
     - name: Build FrontUser
       working-directory: FrontUser
-      run: npm run build
+      run: |
+        npm install
+        npm run build
       
 
     - name: Login to Docker Hub
