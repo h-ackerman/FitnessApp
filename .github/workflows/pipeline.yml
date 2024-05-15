@@ -26,6 +26,7 @@ jobs:
         npm run build
 
     - name: Debug
+      working-directory: FrontUser
       run: |
         ls -al
         pwd
