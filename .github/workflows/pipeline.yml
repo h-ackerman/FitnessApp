@@ -15,16 +15,26 @@ jobs:
     
 
     - name: Setup Node.js environment and build react app
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
-        node-version: '*'
+        node-version: 14
 
     - name: Install dependencies and build react app
       run: |
-        npm install
+        run: npm ci
         npm run build
       working-directory: FrontUser
-        
+
+    - name: Save version
+      id: version
+      run: echo ::set-output name=tag::$(echo $(node -p -e "require('./package.json').version"))
+      working-directory: FrontUser
+
+    - name: Increase version
+      run: npm version patch
+
+    - name: Push new version
+      run: git push
 
     - name: Login to Docker Hub
       run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
