@@ -8,7 +8,7 @@ import Profile from './pages/profile/Profile';
 import OAuth2RedirectHandler from './pages/oauth2/OAuth2RedirectHandler';
 import NotFound from './components/common/NotFound';
 import LoadingIndicator from './components/common/LoadingIndicator';
-import { getCurrentUser, getCurrentUserId, request } from './utils/userApi';
+import { getCurrentUser, getCurrentUserId, request } from './utils/UserApi';
 import { ACCESS_TOKEN } from './utils/constants';
 import Sex from './pages/SexPage/Sex';
 import Age from './pages/AgePage/Age';
