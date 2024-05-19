@@ -26,7 +26,7 @@ public class AccountActivityController {
         }
     }
     @GetMapping("/account/{accountId}/activity/{activityId}/date/{date}/add")
-    public AccountActivity addAccountActivity(@PathVariable Long accountId, @PathVariable Long activityId, @PathVariable String date) {
+    public AccountActivity addAccountActivity(@PathVariable Long accountId, @PathVariable Activity activityId, @PathVariable String date) {
         try {
             // Convertissez la chaîne de date en LocalDate si nécessaire
             LocalDate parsedDate = LocalDate.parse(date);

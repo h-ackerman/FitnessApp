@@ -34,15 +34,17 @@ public class AccountActivityService {
         accountActivity.setDate(LocalDate.now());
         return accountActivityRepository.save(accountActivity);
     }
-    public AccountActivity saveAccountActivity(Long accountId, Long activityId,LocalDate date) {
+    public AccountActivity saveAccountActivity(Long accountId, Activity activityId,LocalDate date) {
         Account account = accountRepository.findById(accountId).orElseThrow(() -> new RuntimeException("Account not found"));
-        Activity activity = activityRepository.findById(activityId).orElseThrow(() -> new RuntimeException("Activity not found"));
+        Activity activity = activityRepository.findById(activityId.getId()).orElseThrow(() -> new RuntimeException("Activity not found"));
         AccountActivity accountActivity = new AccountActivity();
-        accountActivity.setAccount(account);
-        accountActivity.setActivity(activity);
+        accountActivity.setId(accountId);
+        accountActivity.setActivity(activityId);
         accountActivity.setDate(date);
         return accountActivityRepository.save(accountActivity);
     }
+
+
 
     public List<Activity> getActivitiesByAccountId(Long accountId) {
         // Find the account by accountId
