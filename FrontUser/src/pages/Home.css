@@ -1,22 +1,22 @@
 .welcome-container {
     text-align: center;
-    margin-top: 100px;
-    background-color: #f4f4f4; 
-    padding: 50px;
-    height: 650px;
+    color: white;
+    padding: 10px;
+    height: 88.5vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
-  
-  .welcome-container h1 {
-    font-size: 2.5rem;
-    color: #333;
-  }
-  
-  .welcome-container p {
-    font-size: 1.2rem;
-    color: #666;
-    margin-bottom: 20px;
-  }
-  
+
+  .backgroundImageClass {
+    background-image: url('../assets/images/emma-simpson-mNGaaLeWEp0-unsplash.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
   .get-started-button {
     background-color: #4CAF50; /* Green color */
     border: none;
@@ -28,11 +28,13 @@
     font-size: 16px;
     margin-top: 20px;
     cursor: pointer;
+    border-radius: 10px;
   }
   
   .get-started-button:hover {
     background-color: #45a049; /* Darker shade of green on hover */
     color: black;
+    transition: 0.5s;
   }
   
   

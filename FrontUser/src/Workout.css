@@ -9,7 +9,7 @@
     justify-content: space-between;
   }
   .banner {
-    width: 786px;
+    width: 680px;
     height: 160px;
     flex-shrink: 0;
     border-radius: 12px;
@@ -91,19 +91,22 @@
   }
   
   .square-right-container {
-    width: 379.896px;
+    width: 275px;
     height: 343.132px;
-    flex-shrink: 0;
     border-radius: 16px;
-    margin-left: 20px; /* Place le carré à droite */
+    margin-left: 30px;
     margin-top: 20px;
-    overflow: auto;
     font-family: monospace, sans-serif;
+    overflow-y: scroll;
+  }
+
+  .square-right-container::-webkit-scrollbar {
+    width: 2px; 
   }
   
   .square-left-container {
-    width: 379.896px;
-    height: 343.132px;
+    width: 380px;
+    height: 380px;
     flex-shrink: 0;
     border-radius: 16px;
     background: linear-gradient(150deg, #8b7bef 4.71%, #C4BAFF 110.44%), linear-gradient(132deg, #FF4C01 3.51%, #FDC9B3 99.4%, rgba(255, 76, 1, 0.12) 101.96%);
@@ -111,55 +114,8 @@
     margin-left: 20px; /* Place le carré à gauche */
     margin-top: 20px;
   }
+
   
-  .achievements-container {
-    display: flex;
-  
-    margin-top: 70px;
-    margin-left:20px;
-    
-  }
-  
-  .achievement {
-    display: flex;
-    width: 110px;
-    padding: 26px 24px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    border-radius: 100px;
-    background: linear-gradient(180deg, #e8b99d 0.07%, #5C1B00 151.64%);
-    box-shadow: 0px 23px 42px 0px rgba(0, 0, 0, 0.15);
-    margin: 10px;
-  
-  } 
-  .achiv{
-    color: var(--Slate-800, #1E293B);
-  font-family: Manrope;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 140%;
-  margin-left: 20px;
-  }
-  
-  
-  /* Styles pour les icônes FontAwesome */
-  .achievement .icon {
-    color: #fff; /* Couleur blanche */
-  }
-  
-  /* Styles pour le texte des éléments */
-  .achievement span {
-    color: #fff; /* Couleur blanche */
-  }
-  .myschedule{
-    color: var(--Slate-600, #475569);
-    font-family: Manrope;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    margin-left: 50px;
-  }
+
+
   

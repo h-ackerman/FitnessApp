@@ -4,12 +4,11 @@
   }
 
   .Workout{
-    width: 100%;
     display: flex;
     justify-content: space-between;
   }
   .banner {
-    width: 786px;
+    width: 680px;
     height: 160px;
     flex-shrink: 0;
     border-radius: 12px;
@@ -90,8 +89,8 @@
     display: flex;
   }
   
-  .square-right-container {
-    width: 379.896px;
+  .square-right-container-meal {
+    width: 275px;
     height: 343.132px;
     flex-shrink: 0;
     border-radius: 16px;
@@ -101,9 +100,9 @@
     font-family: monospace, sans-serif;
   }
   
-  .square-left-container {
-    width: 379.896px;
-    height: 343.132px;
+  .square-left-container-meal {
+    width: 380px;
+    height: 380px;
     flex-shrink: 0;
     border-radius: 16px;
     background: linear-gradient(150deg, #e8e4ff 4.71%, #C4BAFF 110.44%), linear-gradient(132deg, #FF4C01 3.51%, #FDC9B3 99.4%, rgba(255, 76, 1, 0.12) 101.96%);
@@ -160,6 +159,6 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    margin-left: 50px;
+    margin-left: 10px;
   }
   

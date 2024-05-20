@@ -1,5 +1,6 @@
 package com.example.fitness.controller;
 
+import com.example.fitness.dto.ActivityWithDateDTO;
 import com.example.fitness.model.AccountActivity;
 import com.example.fitness.model.Activity;
 import com.example.fitness.service.AccountActivityService;
@@ -25,10 +26,10 @@ public class AccountActivityController {
             throw new RuntimeException("Failed to add account activity", e);
         }
     }
+
     @GetMapping("/account/{accountId}/activity/{activityId}/date/{date}/add")
-    public AccountActivity addAccountActivity(@PathVariable Long accountId, @PathVariable Activity activityId, @PathVariable String date) {
+    public AccountActivity addAccountActivity(@PathVariable Long accountId, @PathVariable Long activityId, @PathVariable String date) {
         try {
-            // Convertissez la chaîne de date en LocalDate si nécessaire
             LocalDate parsedDate = LocalDate.parse(date);
             return accountActivityService.saveAccountActivity(accountId, activityId, parsedDate);
         } catch (Exception e) {
@@ -38,7 +39,7 @@ public class AccountActivityController {
 
 
     @GetMapping("/user/{userId}/activities")
-    public List<Activity> getActivitiesByUserId(@PathVariable Long userId) {
+    public List<ActivityWithDateDTO> getActivitiesByAccountId(@PathVariable Long userId) {
         return accountActivityService.getActivitiesByAccountId(userId);
     }
 }

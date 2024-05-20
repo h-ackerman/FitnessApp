@@ -1,7 +1,8 @@
 .app-header {
     height: 60px;
     position: relative;
-    
+    box-shadow: 0 4px 8px 0 rgba(142, 142, 142, 0.2);
+    margin-bottom: 10px;
 }
 
 .app-title {

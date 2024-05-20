@@ -31,4 +31,9 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
+
+    @PutMapping("/register/{accountId}")
+    public User updateUser(@RequestBody User user, @PathVariable Long accountId) {
+        return userService.updateUser(user, accountId);
+    }
 }

@@ -5,7 +5,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import './ActivityCard.css';
 import { getCurrentUserId, request } from './utils/UserApi';
 
-const ActivityCard = ({ activity, setActivity, addToSchedule, initialSelectedDate }) => {
+const ActivityCard = ({ activity, setActivity, initialSelectedDate }) => {
   const [showCalendar, setShowCalendar] = useState(false);
   const [selectedDate, setSelectedDate] = useState(initialSelectedDate);
 
@@ -16,25 +16,17 @@ const ActivityCard = ({ activity, setActivity, addToSchedule, initialSelectedDat
   const addActivity = async (e) => {
     e.stopPropagation();
     const userId = await getCurrentUserId();
-    const formattedDate = selectedDate ? selectedDate.toISOString().split('T')[0] : null;
-    const url = `http://localhost:8080/myActivities/account/${userId}/activity/${activity.id}/date/${formattedDate}/add`;
-
+    const url = `http://localhost:8080/myActivities/account/${userId}/activity/${activity.id}/add`;
     const sendRequest = async () => {
       try {
         const response = await request({
           url: url,
-          method: 'POST', // Change to POST for better REST practices
+          method: 'GET',
         });
-        if (response.ok) {
-          addToSchedule({ ...activity, date: selectedDate });
-        } else {
-          console.error('Failed to add activity', response.statusText);
-        }
       } catch (error) {
-        console.error('Error:', error);
+        console.error('Failed to add activity', error);
       }
     };
-
     sendRequest();
   };
 
@@ -43,9 +35,24 @@ const ActivityCard = ({ activity, setActivity, addToSchedule, initialSelectedDat
     setShowCalendar(!showCalendar);
   };
 
-  const handleDateChange = (date) => {
+  const handleDateChange = async (date) => {
     setSelectedDate(date);
     setShowCalendar(false);
+    const userId = await getCurrentUserId();
+    const formattedDate = date ? date.toISOString().split('T')[0] : null;
+    const url = `http://localhost:8080/myActivities/account/${userId}/activity/${activity.id}/date/${formattedDate}/add`;
+    console.log(url)
+    const sendRequest = async () => {
+      try {
+        const response = await request({
+          url: url,
+          method: 'GET',
+        });
+      } catch (error) {
+        console.error('Failed to add activity', error);
+      }
+    };
+    sendRequest();
   };
 
   return (
@@ -71,6 +78,7 @@ const ActivityCard = ({ activity, setActivity, addToSchedule, initialSelectedDat
             onChange={handleDateChange}
             inline
             withPortal
+            minDate={new Date()}
           />
         </div>
       )}

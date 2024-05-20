@@ -35,12 +35,12 @@ const Login = ({ authenticated }) => {
     return (
         <div className="login-container">
             <div className="login-content">
-                <h1 className="login-title">Login to SpringSocial</h1>
+                <h1 className="login-title">Login to Fitness App</h1>
                 <SocialLogin />
                 <div className="or-separator">
                     <span className="or-text">OR</span>
                 </div>
-                <LoginForm />
+                {/* <LoginForm /> */}
                 <span className="signup-link">New user? <Link to="/signup">Sign up!</Link></span>
             </div>
         </div>

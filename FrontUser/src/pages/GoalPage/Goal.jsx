@@ -3,7 +3,7 @@ import './Goal.css';
 import { Link } from 'react-router-dom';
 
 const GoalSelector = ({ goal, setGoal, saveData }) => {
-    const expressions = ['Gain weight', 'Lose weight', 'Get fitter', 'Gain more flexible', 'Learn the basic'];
+    const expressions = ['Gain weight', 'Lose weight', 'Get fitter', 'Increase Physical Activity:', 'Strength Training', 'Nutrition', 'Flexibility'];
 
     const handleGoalSelection = (selectedGoal) => {
         setGoal(selectedGoal);
