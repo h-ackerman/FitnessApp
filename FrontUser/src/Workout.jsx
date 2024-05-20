@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './Workout.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClock, faFire, faHourglass } from '@fortawesome/free-solid-svg-icons'; // Importez les icônes nécessaires
 import ActivityCard from './ActivityCard';
 import ActivityDescription from './ActivityDescription';
 import Schedule from './Schedule';
@@ -50,11 +48,9 @@ const Workout = () => {
       }
     };
     getActivitiesOfUser(); // Appel de la fonction pour récupérer les activités lors du montage du composant
-  }, []);
+  }, [userActivities]);
 
-  const addToSchedule = (newActivity) => {
-    setUserActivities((prevActivities) => [...prevActivities, newActivity]);
-  };
+
 
   return (
     <div className='Workout'>
@@ -75,7 +71,7 @@ const Workout = () => {
           <div className="square-right-container">
             {/* Liste des activités */}
             {activities.map(activity => (
-              <ActivityCard key={activity.id} activity={activity} setActivity={setActivity} addToSchedule={addToSchedule} />
+              <ActivityCard key={activity.id} activity={activity} setActivity={setActivity} />
             ))}
           </div>
         </div>

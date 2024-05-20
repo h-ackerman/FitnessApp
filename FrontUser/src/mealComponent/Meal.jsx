@@ -70,11 +70,11 @@ const Meal = () => {
         </div>
         <div className='workouts'>
           {/* Carré à gauche */}
-          <div className="square-left-container">
+          <div className="square-left-container-meal">
             <MealDescription meal={meal} />
           </div>
           {/* Carré à droite */}
-          <div className="square-right-container">
+          <div className="square-right-container-meal">
             {/* Liste des activités */}
             {meals.map(meal => (
               <MealCard key={meal.id} meal={meal} setMeal={setMeal} />
@@ -85,7 +85,7 @@ const Meal = () => {
       </div>
       <div className='Schedule'>
       <div className='myschedule'>My Diet</div>
-        <Schedule schedule={userMeals}/>
+        <Schedule userMeals={userMeals}/>
       </div>
 
     </div>

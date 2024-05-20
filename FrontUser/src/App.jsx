@@ -20,7 +20,8 @@ import WorkoutPage from './pages/WorkoutPage';
 import Sidebar from './components/layout/Sidebar';
 import MealPage from './pages/MealPage';
 import './App.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+
 
 
 const App = () => {
@@ -33,6 +34,11 @@ const App = () => {
   const [height, setHeight] = useState(160);
   const [goal, setGoal] = useState('');
   const navigate = useNavigate();
+  const location = useLocation();
+  const hideSidebarRoutes = ['/login', '/signup', '/'];
+  const shouldHideSidebar = hideSidebarRoutes.includes(location.pathname);
+
+
 
   const saveData = async () => {
     try {
@@ -75,6 +81,7 @@ const App = () => {
     setAuthenticated(false);
     setCurrentUser(null);
     alert("You're safely logged out!");
+    navigate('/')
   };
 
   useEffect(() => {
@@ -89,10 +96,10 @@ const App = () => {
     <>
       <AppHeader authenticated={authenticated} onLogout={handleLogout} />
       <div className="app">
-        <Sidebar />
+        {!shouldHideSidebar && <Sidebar />}
         <div className="app-body">
           <Routes>
-            <Route exact path="/" element={<Home />}></Route>
+            <Route exact path="/" element={<Home authenticated={authenticated}/>}></Route>
             <Route path="/login" element={<Login authenticated={authenticated} />} />
             <Route path="/signup" element={<Signup authenticated={authenticated} />} />
             <Route exact path="/profile" element={<Profile authenticated={authenticated} currentUser={currentUser} component={Profile} />}></Route>

@@ -21,12 +21,12 @@ const Signup = ({ authenticated, location }) => {
     return (
         <div className="signup-container">
             <div className="signup-content">
-                <h1 className="signup-title">Signup with SpringSocial</h1>
+                <h1 className="signup-title">Signup with Fitness App</h1>
                 <SocialSignup />
                 <div className="or-separator">
                     <span className="or-text">OR</span>
                 </div>
-                <SignupForm navigate={navigate} />
+                {/* <SignupForm navigate={navigate} /> */}
                 <span className="login-link">Already have an account? <Link to="/login">Login!</Link></span>
             </div>
         </div>

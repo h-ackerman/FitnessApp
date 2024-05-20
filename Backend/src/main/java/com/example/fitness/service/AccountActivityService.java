@@ -1,5 +1,6 @@
 package com.example.fitness.service;
 
+import com.example.fitness.dto.ActivityWithDateDTO;
 import com.example.fitness.model.Account;
 import com.example.fitness.model.AccountActivity;
 import com.example.fitness.model.Activity;
@@ -34,19 +35,20 @@ public class AccountActivityService {
         accountActivity.setDate(LocalDate.now());
         return accountActivityRepository.save(accountActivity);
     }
-    public AccountActivity saveAccountActivity(Long accountId, Activity activityId,LocalDate date) {
+
+    public AccountActivity saveAccountActivity(Long accountId, Long activityId,LocalDate date) {
         Account account = accountRepository.findById(accountId).orElseThrow(() -> new RuntimeException("Account not found"));
-        Activity activity = activityRepository.findById(activityId.getId()).orElseThrow(() -> new RuntimeException("Activity not found"));
+        Activity activity = activityRepository.findById(activityId).orElseThrow(() -> new RuntimeException("Activity not found"));
         AccountActivity accountActivity = new AccountActivity();
-        accountActivity.setId(accountId);
-        accountActivity.setActivity(activityId);
+        accountActivity.setAccount(account);
+        accountActivity.setActivity(activity);
         accountActivity.setDate(date);
         return accountActivityRepository.save(accountActivity);
     }
 
 
 
-    public List<Activity> getActivitiesByAccountId(Long accountId) {
+    public List<ActivityWithDateDTO> getActivitiesByAccountId(Long accountId) {
         // Find the account by accountId
         Account account = accountRepository.findById(accountId)
                 .orElseThrow(() -> new RuntimeException("Account not found"));
@@ -54,13 +56,16 @@ public class AccountActivityService {
         // Find all account activities associated with the account
         List<AccountActivity> accountActivities = accountActivityRepository.findByAccount(account);
 
-        // Extract the activities from the account meals
-        List<Activity> activities = new ArrayList<>();
+        // Extract the activities and their dates from the account activities
+        List<ActivityWithDateDTO> activitiesWithDates = new ArrayList<>();
         for (AccountActivity accountActivity : accountActivities) {
-            activities.add(accountActivity.getActivity());
+            Activity activity = accountActivity.getActivity();
+            LocalDate date = accountActivity.getDate();
+            activitiesWithDates.add(new ActivityWithDateDTO(activity, date));
         }
 
-        return activities;
+        return activitiesWithDates;
     }
+
 }
 

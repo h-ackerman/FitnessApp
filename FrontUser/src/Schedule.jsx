@@ -8,11 +8,11 @@ const Schedule = ({ schedule }) => {
         <div key={index} className="schedule-item">
           <div className='flexing'>
             <div className='schedule-details'>
-              <div className='schedule-element1'>{item.date ? item.date.toLocaleDateString() : 'No Date Selected'}</div>
-              <div className='schedule-element2'>{item.name}</div>
-              <div className='schedule-element3'>{item.duration} min</div>
+              <div className='schedule-element1'>{item.date}</div>
+              <div className='schedule-element2'>{item.activity.name}</div>
+              <div className='schedule-element3'>{item.activity.duration} min</div>
             </div>
-            <div className='sets'>{item.calories} Kcal</div>
+            <div className='sets'>{item.activity.calories} Kcal</div>
           </div>
         </div>
       ))}
