@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { FaClock, FaFire, FaPlus, FaCalendarAlt } from 'react-icons/fa';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './ActivityCard.css';
 import { getCurrentUserId, request } from './utils/UserApi';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ActivityCard = ({ activity, setActivity, initialSelectedDate }) => {
   const [showCalendar, setShowCalendar] = useState(false);
@@ -17,17 +19,16 @@ const ActivityCard = ({ activity, setActivity, initialSelectedDate }) => {
     e.stopPropagation();
     const userId = await getCurrentUserId();
     const url = `http://localhost:8080/myActivities/account/${userId}/activity/${activity.id}/add`;
-    const sendRequest = async () => {
-      try {
-        const response = await request({
-          url: url,
-          method: 'GET',
-        });
-      } catch (error) {
-        console.error('Failed to add activity', error);
-      }
-    };
-    sendRequest();
+    try {
+      await request({
+        url: url,
+        method: 'GET',
+      });
+      toast.success(`Vous avez sélectionné ${activity.name}. Cette activité vous permet de perdre ${activity.calories} KCAL.`);
+    } catch (error) {
+      console.error('Failed to add activity', error);
+      toast.error('Échec de l\'ajout de l\'activité');
+    }
   };
 
   const toggleCalendar = (e) => {
@@ -41,18 +42,16 @@ const ActivityCard = ({ activity, setActivity, initialSelectedDate }) => {
     const userId = await getCurrentUserId();
     const formattedDate = date ? date.toISOString().split('T')[0] : null;
     const url = `http://localhost:8080/myActivities/account/${userId}/activity/${activity.id}/date/${formattedDate}/add`;
-    console.log(url)
-    const sendRequest = async () => {
-      try {
-        const response = await request({
-          url: url,
-          method: 'GET',
-        });
-      } catch (error) {
-        console.error('Failed to add activity', error);
-      }
-    };
-    sendRequest();
+    try {
+      await request({
+        url: url,
+        method: 'GET',
+      });
+      toast.success(`Date sélectionnée pour ${activity.name} : ${formattedDate}`);
+    } catch (error) {
+      console.error('Failed to add activity', error);
+      toast.error('Échec de la sélection de la date');
+    }
   };
 
   return (
@@ -82,6 +81,7 @@ const ActivityCard = ({ activity, setActivity, initialSelectedDate }) => {
           />
         </div>
       )}
+      <ToastContainer />
     </div>
   );
 };
